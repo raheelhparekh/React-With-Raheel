@@ -8,7 +8,7 @@ function Header() {
   const authStatus=useSelector(state=>state.auth.status)
   const navigate=useNavigate()
 
-  const naItems=[
+  const navItems=[
   {
     name:'Home',
     slug:'/',
