@@ -8,6 +8,7 @@ function App() {
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("inr");
   const [convertedAmount, setConvertedAmount] = useState(0);
+  const { date } = useCurrencyInfo(from);
 
   const currencyInfo = useCurrencyInfo(from);
   const options = Object.keys(currencyInfo);
@@ -34,7 +35,7 @@ function App() {
       >       
         <div className="w-full">
           <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
-          <h1 className="text-white text-center justify-center text-2xl mb-5">DhanXchange</h1>
+          <h1 className="text-white text-center justify-center text-xl mb-5">DhanXchange as on {date}</h1>
           <form
               onSubmit={(e) => {
                 e.preventDefault();
