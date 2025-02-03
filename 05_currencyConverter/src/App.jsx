@@ -29,12 +29,13 @@ function App() {
       <div
         className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
         style={{
-          backgroundImage: `url('https://i.pinimg.com/736x/e6/8a/17/e68a175caa08d46b0cab1a13c3a1877c.jpg')`,
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('/image.webp')",
         }}
-      >
+      >       
         <div className="w-full">
           <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
-            <form
+          <h1 className="text-white text-center justify-center text-2xl mb-5">DhanXchange</h1>
+          <form
               onSubmit={(e) => {
                 e.preventDefault();
                 convert();
