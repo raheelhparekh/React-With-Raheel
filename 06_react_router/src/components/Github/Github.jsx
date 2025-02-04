@@ -1,5 +1,15 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+
+/*
+    loader function ka use kiya api fetch karne ke liye. 
+    optimized way to fetch data from api.
+*/
+export const githubInfoLoader = async () => {
+  const response = await fetch("https://api.github.com/users/raheelhparekh");
+  const data = await response.json();
+  return data;
+}
 
 function Github() {
   /*
@@ -17,16 +27,16 @@ function Github() {
 //       });
 //   }, []);
 
-    const data = useLoaderData();
+  const data = useLoaderData();
   return (
-    <div className='bg-black text-white p-7 m-6 text-center text-3xl'>
-    <h2 className="mb-4">GitHub Stats: {data.login}</h2>
+    <div className=' text-white p-7 m-6 text-center text-3xl'>
+    <h2 className="mb-4 font-semibold text-orange-500">GitHub Stats: {data.login}</h2>
     <div className='flex items-center justify-center'>
         <img className="mr-4" src={data.avatar_url} alt="Git Profile Pic" />
         <div>
-            <p className="mb-2 font-semibold text-white-500">Name: {data.name}</p>
-            <p className="mb-2 font-light text-white-500">Location: {data.location}</p>
-            <p className="mb-2 font-bold text-green-500">Followers: {data.followers}</p>
+            <p className="mb-2 font-semibold text-orange-500">Name: {data.name}</p>
+            <p className="mb-2 font-semibold  text-orange-500">Location: {data.location}</p>
+            <p className="mb-2 font-medium text-green-500">Followers: {data.followers}</p>
             <p className="mb-2 font-medium text-red-500">Following: {data.following}</p>
         </div>
     </div>
@@ -34,14 +44,3 @@ function Github() {
   );
 }
 export default Github;
-
-/*
-    loader function ka use kiya api fetch karne ke liye. 
-    optimized way to fetch data from api.
-*/
-
-export const githubInfoLoader = async () => {
-  const response = await fetch("https://api.github.com/users/raheelhparekh");
-  const data = await response.json();
-  return data;
-}

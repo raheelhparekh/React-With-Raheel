@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import {
   Route,
@@ -13,6 +13,8 @@ import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import User from "./components/User/User";
 import Github, { githubInfoLoader } from "./components/Github/Github";
+import Login from "./components/Login/Login";
+import GetStarted from "./components/GetStarted/GetStarted";
 
 /* First method of routing */
 
@@ -43,18 +45,19 @@ import Github, { githubInfoLoader } from "./components/Github/Github";
 /* Second method of routing */
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}> //Layout is parent component, layout = root component
+    <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
-      <Route path="user/:userid" element={<User />} /> //dynamic routing note syntax
-      
+      <Route path="user/:userid" element={<User />} />
       <Route
         loader={githubInfoLoader}
         path="github"
         element={<Github />}
       />
       <Route path="github" element={<Github />} />
+      <Route path="login" element={<Login/>}/>
+      <Route path="get-started" element={<GetStarted/>}/>
     </Route>
   )
 );

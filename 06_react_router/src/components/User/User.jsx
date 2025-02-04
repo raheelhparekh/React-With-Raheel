@@ -1,4 +1,3 @@
-import React from 'react'
 import { useParams } from 'react-router-dom'
 /*
     - useParams: It is a hook that is used to access the parameters of the current route.
