@@ -7,6 +7,7 @@ import TodoItem from './components/TodoItem'
 function App() {
   const [todos, setTodos] = useState([])
 
+  // prev means oldtodos joh the pehle se voh bhi rehne chahiye, agar prev nahi likha toh sirf naya todo dikheg UI me. we want to show all new as well as existing ones
   const addTodo = (todo) => {
     setTodos((prev) => [{id: Date.now(), ...todo}, ...prev] )
   }
@@ -17,6 +18,7 @@ function App() {
     
   }
 
+  // purana array me sari values he, now naya array me deleted id wala nahi hona chahiye
   const deleteTodo = (id) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id))
   }

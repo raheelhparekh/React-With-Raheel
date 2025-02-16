@@ -17,5 +17,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-  },
+    'react/react-in-jsx-scope': 'off', // ✅ Fixes "React defined but never used"
+    'no-unused-vars': 'warn' // ⏳ Turns unused vars into warnings instead of errors
+  }
 }

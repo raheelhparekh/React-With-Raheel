@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useTodo } from '../contexts/TodoContext';
 
 function TodoForm() {
+    // yeh individual todo ke liye, not the entire list of todos
     const [todo, setTodo] = useState("")
     const {addTodo} = useTodo()
 
@@ -10,7 +11,7 @@ function TodoForm() {
 
       if (!todo) return
 
-      addTodo({ todo, completed: false})
+      addTodo({todo, completed: false})
       setTodo("")
     }
 

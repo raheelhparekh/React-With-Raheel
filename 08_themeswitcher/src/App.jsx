@@ -33,8 +33,9 @@ function App() {
             <ThemeBtn/>
           </div>
 
-          <div className="w-full max-w-sm mx-auto"></div>
+          <div className="w-full max-w-sm mx-auto">
            <Card/>
+          </div>
         </div>
       </div>
     </ThemeProvider>
