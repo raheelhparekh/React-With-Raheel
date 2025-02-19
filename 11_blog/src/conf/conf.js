@@ -1,3 +1,7 @@
+// this file is basically a defense that the env varibale will always be passed in as a string
+// this is a good practice to have a file like this to make sure that the env variables are always passed in as a string
+// PRODUCTION GRADE APPROACH TO ENV VARIABLES
+
 const conf = {
     appwriteUrl: String(import.meta.env.VITE_APPWRITE_URL),
     appwriteProjectId: String(import.meta.env.VITE_APPWRITE_PROJECT_ID),

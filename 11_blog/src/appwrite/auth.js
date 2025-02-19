@@ -1,7 +1,10 @@
 import conf from '../conf/conf.js';
 import { Client, Account, ID } from "appwrite";
 
+// https://appwrite.io/docs/products/auth/email-password
 
+
+//The AuthService class is created to manage user authentication in a structured and reusable way. Instead of writing authentication logic all over the app, we keep it in one place, making the code cleaner, easier to maintain, and reusable
 export class AuthService {
     client = new Client();
     account;
@@ -18,7 +21,7 @@ export class AuthService {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name);
             if (userAccount) {
-                // call another method
+                // agar useraccount exist karta he toh direct login kara diya
                 return this.login({email, password});
             } else {
                return  userAccount;
@@ -40,7 +43,7 @@ export class AuthService {
         try {
             return await this.account.get();
         } catch (error) {
-            console.log("Appwrite serive :: getCurrentUser :: error", error);
+            console.log("Appwrite service :: getCurrentUser :: error", error);
         }
 
         return null;
