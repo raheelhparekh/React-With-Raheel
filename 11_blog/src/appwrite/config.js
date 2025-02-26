@@ -84,7 +84,7 @@ export class Service{
     }
 
     // get all posts whose status is active according to our query
-    async getPosts(queries = [Query.equal("statuss", "active")]){
+    async getPosts(queries = [Query.equal("status", "active")]){
         try {
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,

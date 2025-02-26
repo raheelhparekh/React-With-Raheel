@@ -21,7 +21,7 @@ export class AuthService {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name);
             if (userAccount) {
-                // agar useraccount exist karta he toh direct login kara diya
+                // agar user account exist karta he toh direct login kara diya
                 return this.login({email, password});
             } else {
                return  userAccount;
@@ -54,7 +54,7 @@ export class AuthService {
         try {
             await this.account.deleteSessions();
         } catch (error) {
-            console.log("Appwrite serive :: logout :: error", error);
+            console.log("Appwrite service :: logout :: error", error);
         }
     }
 }

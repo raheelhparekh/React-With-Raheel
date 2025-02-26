@@ -1,8 +1,13 @@
-import React from 'react'
 
-function Logo({width="100px"}) {
+
+function Logo({width}) {
   return (
-    <div>Logo</div>
+    <img 
+      src={`/RP dark.png`} 
+      alt="Logo"
+      className="object-cover" 
+      width={width}
+    />
   )
 }
 
