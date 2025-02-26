@@ -84,16 +84,21 @@ export class Service{
     }
 
     // get all posts whose status is active according to our query
-    async getPosts(queries = [Query.equal("status", "active")]){
+    async getPosts(userId = null, queries = [Query.equal("status", "active")]) {
         try {
+            // If userId is provided, add it to the query
+            if (userId) {
+                queries.push(Query.equal("userId", userId));
+            }
+    
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                queries,
-            )
+                queries
+            );
         } catch (error) {
             console.log("Appwrite service :: getPosts :: error", error);
-            return false
+            return false;
         }
     }
 

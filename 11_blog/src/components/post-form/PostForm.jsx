@@ -19,6 +19,7 @@ export default function PostForm({ post }) {
     const userData = useSelector((state) => state.auth.userData);
 
     const submit = async (data) => {
+        // post already exist karta he, means edit karna he basically
         if (post) {
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
@@ -34,13 +35,16 @@ export default function PostForm({ post }) {
             if (dbPost) {
                 navigate(`/post/${dbPost.$id}`);
             }
-        } else {
+        }
+        // post he hi nahi, means new post create karna he 
+        else {
             const file = await appwriteService.uploadFile(data.image[0]);
 
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
                 const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
+                // console.log("dbPost", userData.$id);
 
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
@@ -95,7 +99,7 @@ export default function PostForm({ post }) {
                     label="Featured Image :"
                     type="file"
                     className="mb-4"
-                    accept="image/png, image/jpg, image/jpeg, image/gif"
+                    accept="image/png, image/jpg, image/jpeg, image/gif, image/heic"
                     {...register("image", { required: !post })}
                 />
                 {post && (
